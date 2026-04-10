@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For you 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    background: #fff5f8;
+    background-image:
+      radial-gradient(circle at 20% 20%, #ffd6e7 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, #fce4ec 0%, transparent 40%),
+      radial-gradient(circle at 60% 10%, #f8bbd0 0%, transparent 30%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,182,210,0.4);
+    border-radius: 32px;
+    max-width: 460px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    animation: fadeUp 0.9s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(24px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .heart-wrap {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 0.6rem;
+    animation: heartbeat 2s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    14%     { transform: scale(1.2); }
+    28%     { transform: scale(1); }
+    42%     { transform: scale(1.12); }
+    56%     { transform: scale(1); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #b5174e;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+  .tagline {
+    font-size: 0.88rem;
+    color: #c2607a;
+    font-style: italic;
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ─── Photos ─── */
+  .photos {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .photo-frame {
+    width: 148px;
+    height: 180px;
+    border-radius: 20px;
+    border: 3px solid #f8bbd0;
+    overflow: hidden;
+    background: #fce4ec;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(194,24,91,0.12);
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ─── Message ─── */
+  .message {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #5d2c40;
+    line-height: 1.9;
+    margin-bottom: 1.8rem;
+  }
+  .message em {
+    color: #b5174e;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* ─── Pills ─── */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+  }
+  .pill {
+    background: #fce4ec;
+    color: #880e4f;
+    border: 1px solid #f48fb1;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    animation: float 3.5s ease-in-out infinite;
+  }
+  .pill:nth-child(2){animation-delay:.5s}
+  .pill:nth-child(3){animation-delay:1s}
+  .pill:nth-child(4){animation-delay:1.5s}
+  .pill:nth-child(5){animation-delay:2s}
+  .pill:nth-child(6){animation-delay:2.5s}
+  @keyframes float {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}
+  }
+
+  /* ─── Secret message ─── */
+  .secret {
+    display: none;
+    background: linear-gradient(135deg, #fff0f5, #fce4ec);
+    border: 1px solid #f8bbd0;
+    border-radius: 18px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 1.6rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.97rem;
+    color: #7b2d48;
+    line-height: 1.8;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  /* ─── Button ─── */
+  .btn {
+    background: #e91e8c;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 13px 36px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+    margin-bottom: 1.4rem;
+  }
+  .btn:hover { background: #c2185b; transform: scale(1.05); }
+  .btn:active { transform: scale(0.97); }
+
+  /* ─── Sparkles ─── */
+  .sparkles {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 16px;
+    margin-bottom: 0.6rem;
+  }
+  .sp { animation: sparkle 2.5s ease-in-out infinite; }
+  .sp:nth-child(2){animation-delay:.4s}
+  .sp:nth-child(3){animation-delay:.8s}
+  .sp:nth-child(4){animation-delay:1.2s}
+  .sp:nth-child(5){animation-delay:1.6s}
+  @keyframes sparkle {
+    0%,100%{opacity:0.3;transform:scale(0.8)}
+    50%{opacity:1;transform:scale(1.2)}
+  }
+
+  .counter { font-size: 0.8rem; color: #c2607a; margin-bottom: 0.4rem; }
+  .note { font-size: 0.75rem; color: #c2607a; font-style: italic; opacity: 0.8; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <span class="heart-wrap" id="heart">💗</span>
+  <h1>Hey, my love</h1>
+  <p class="tagline">just wanted you to know something...</p>
+
+  <!-- ★ Replace the src values with your image file paths ★ -->
+  <div class="photos">
+    <div class="photo-frame">
+      <img src="photo1.jpg" alt="her photo 1">
+    </div>
+    <div class="photo-frame">
+      <img src="photo2.jpg" alt="her photo 2">
+    </div>
+  </div>
+
+  <p class="message">
+    I know these days feel heavy &amp; uncomfortable.<br>
+    But you're handling it like the <em>queen</em> you are. 👑<br><br>
+    I'm right here — warm blanket,<br>
+    your favourite snacks, and all my love,<br>
+    just for you. 🍫
+  </p>
+
+  <div class="pills">
+    <span class="pill">my favourite human</span>
+    <span class="pill">so incredibly strong</span>
+    <span class="pill">effortlessly beautiful</span>
+    <span class="pill">my safe place</span>
+    <span class="pill">my whole heart</span>
+    <span class="pill">worth every smile</span>
+  </div>
+
+  <div class="secret" id="secret">
+    🌸 Your body is doing something incredible — and even on the hardest days,
+    you shine so bright. I see you. I love you. And I'd choose you a thousand times over.
+    Now rest — you deserve it. 💕
+  </div>
+
+  <button class="btn" onclick="sendLove()">Send me a hug 🤗</button>
+
+  <div class="sparkles">
+    <span class="sp">✨</span>
+    <span class="sp">🌸</span>
+    <span class="sp">💖</span>
+    <span class="sp">🌷</span>
+    <span class="sp">✨</span>
+  </div>
+
+  <p class="counter" id="counter"></p>
+  <p class="note">made with love, just for you 💌</p>
+</div>
+
+<script>
+  let count = 0;
+  const hearts = ['💗','💓','💕','💖','💝','🥰'];
+  function sendLove() {
+    count++;
+    document.getElementById('counter').textContent = 'hugs sent: ' + count + ' 🤗';
+    document.getElementById('secret').style.display = 'block';
+    document.getElementById('heart').textContent = hearts[count % hearts.length];
+  }
+</script>
+</body>
+</html>
